@@ -60,3 +60,15 @@ jobs:
             -Dsonar.organization=f4nz3y
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: flake8 reviewdog
+        uses: reviewdog/action-flake8@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          level: error
+      - name: black reviewdog
+        uses: reviewdog/action-black@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          level: info
