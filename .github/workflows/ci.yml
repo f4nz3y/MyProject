@@ -58,6 +58,7 @@ jobs:
           args: >
             -Dsonar.projectKey=f4nz3y_MyProject
             -Dsonar.organization=f4nz3y
+            -Dsonar.sources=src
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: flake8 reviewdog
