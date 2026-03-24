@@ -52,3 +52,11 @@ jobs:
           sudo apt-get install -y cloc
           cloc src/ > cloc-report.txt
           cat cloc-report.txt
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          args: >
+            -Dsonar.projectKey=f4nz3y_MyProject
+            -Dsonar.organization=f4nz3y
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
